@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coretail — AI 기반 비즈니스 플랫폼</title>
+  <style>
+    :root {
+      --bg: #0a0d12;
+      --card: #111620;
+      --border: #1e2535;
+      --primary: #6d28d9;
+      --primary-light: #7c3aed;
+      --accent1: #059669;
+      --accent2: #2563eb;
+      --accent3: #d97706;
+      --text: #e2e8f0;
+      --text-sub: #94a3b8;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; }
+
+    /* ── 네비게이션 ── */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      background: rgba(10,13,18,0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-brand { font-size: 20px; font-weight: 800; color: white; letter-spacing: -0.5px; }
+    .nav-brand span { color: var(--primary-light); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { color: var(--text-sub); text-decoration: none; font-size: 14px; transition: color .2s; }
+    .nav-links a:hover { color: white; }
+    .nav-contact {
+      background: var(--primary); color: white;
+      padding: 8px 20px; border-radius: 6px;
+      text-decoration: none; font-size: 13px; font-weight: 600;
+    }
+
+    /* ── 히어로 ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(109,40,217,0.15) 0%, transparent 70%);
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(109,40,217,0.15);
+      border: 1px solid rgba(109,40,217,0.4);
+      color: #a78bfa;
+      padding: 6px 16px; border-radius: 20px;
+      font-size: 13px; font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 800; line-height: 1.15;
+      letter-spacing: -1.5px;
+      margin-bottom: 24px;
+    }
+    .hero h1 span { color: var(--primary-light); }
+    .hero p {
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--text-sub); line-height: 1.8;
+      max-width: 600px; margin: 0 auto 48px;
+    }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--primary); color: white;
+      padding: 14px 32px; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 15px;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover { background: var(--primary-light); transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid var(--border); color: var(--text);
+      padding: 14px 32px; border-radius: 8px;
+      text-decoration: none; font-size: 15px;
+      transition: border-color .2s, transform .15s;
+    }
+    .btn-outline:hover { border-color: var(--primary-light); transform: translateY(-2px); }
+
+    /* ── 서비스 ── */
+    .services { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      text-align: center; color: var(--primary-light);
+      font-size: 13px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .section-title {
+      text-align: center; font-size: clamp(26px, 4vw, 40px);
+      font-weight: 800; margin-bottom: 56px; letter-spacing: -0.5px;
+    }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 36px 28px;
+      transition: border-color .25s, transform .25s;
+      position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+    }
+    .card-itam::before { background: var(--accent1); }
+    .card-kimco::before { background: var(--primary-light); }
+    .card-xpert::before { background: var(--accent2); }
+    .card:hover { transform: translateY(-6px); }
+    .card-itam:hover { border-color: var(--accent1); }
+    .card-kimco:hover { border-color: var(--primary-light); }
+    .card-xpert:hover { border-color: var(--accent2); }
+    .card-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 20px;
+    }
+    .icon-itam { background: rgba(5,150,105,0.15); }
+    .icon-kimco { background: rgba(109,40,217,0.15); }
+    .icon-xpert { background: rgba(37,99,235,0.15); }
+    .card-tag {
+      display: inline-block;
+      padding: 3px 10px; border-radius: 20px;
+      font-size: 11px; font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .tag-itam { background: rgba(5,150,105,0.15); color: #34d399; }
+    .tag-kimco { background: rgba(109,40,217,0.15); color: #a78bfa; }
+    .tag-xpert { background: rgba(37,99,235,0.15); color: #60a5fa; }
+    .card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+    .card p { color: var(--text-sub); font-size: 14px; line-height: 1.7; margin-bottom: 28px; }
+    .card-features { list-style: none; margin-bottom: 32px; }
+    .card-features li {
+      font-size: 13px; color: var(--text-sub);
+      padding: 6px 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .card-features li:last-child { border-bottom: none; }
+    .card-features li::before { content: '✓'; font-weight: 700; }
+    .itam-check::before { color: var(--accent1) !important; }
+    .kimco-check::before { color: var(--primary-light) !important; }
+    .xpert-check::before { color: var(--accent2) !important; }
+    .card-link {
+      display: block; text-align: center;
+      padding: 11px; border-radius: 8px;
+      text-decoration: none; font-size: 14px; font-weight: 600;
+      transition: opacity .2s;
+    }
+    .card-link:hover { opacity: 0.85; }
+    .link-itam { background: var(--accent1); color: white; }
+    .link-kimco { background: var(--primary); color: white; }
+    .link-xpert { background: var(--accent2); color: white; }
+
+    /* ── 연락처 ── */
+    .contact {
+      background: var(--card); border-top: 1px solid var(--border);
+      padding: 80px 24px; text-align: center;
+    }
+    .contact h2 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
+    .contact p { color: var(--text-sub); margin-bottom: 36px; }
+    .contact-items { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+    .contact-item {
+      background: var(--bg); border: 1px solid var(--border);
+      padding: 16px 28px; border-radius: 10px;
+      text-decoration: none; color: var(--text);
+      font-size: 14px; display: flex; align-items: center; gap: 10px;
+      transition: border-color .2s;
+    }
+    .contact-item:hover { border-color: var(--primary-light); }
+
+    /* ── 푸터 ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: var(--text-sub);
+    }
+    footer a { color: var(--text-sub); text-decoration: none; }
+    footer a:hover { color: white; }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .cards { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 네비게이션 -->
+<nav>
+  <div class="nav-brand">Core<span>tail</span></div>
+  <div class="nav-links">
+    <a href="#services">서비스</a>
+    <a href="#contact">문의</a>
+  </div>
+  <a href="#contact" class="nav-contact">문의하기</a>
+</nav>
+
+<!-- 히어로 -->
+<section class="hero">
+  <div class="hero-badge">AI-Powered Business Platform</div>
+  <h1>비즈니스를 위한<br><span>AI 플랫폼</span> 솔루션</h1>
+  <p>Coretail은 기업 자산관리부터 AI 회계 리포트, 고성능 AI 워크스테이션까지<br>비즈니스 전 영역을 커버하는 솔루션을 제공합니다.</p>
+  <div class="hero-btns">
+    <a href="#services" class="btn-primary">서비스 보기</a>
+    <a href="#contact" class="btn-outline">문의하기</a>
+  </div>
+</section>
+
+<!-- 서비스 -->
+<section class="services" id="services">
+  <div class="section-label">Our Services</div>
+  <div class="section-title">3가지 핵심 서비스</div>
+  <div class="cards">
+
+    <!-- ITAM -->
+    <div class="card card-itam">
+      <div class="card-icon icon-itam">🏢</div>
+      <span class="card-tag tag-itam">ITAM</span>
+      <h3>기업 IT자산<br>수거 플랫폼</h3>
+      <p>노후 IT 자산의 체계적인 수거·매각 관리를 위한 전문 플랫폼입니다.</p>
+      <ul class="card-features">
+        <li class="itam-check">자산 신청 및 현황 관리</li>
+        <li class="itam-check">지점별 권한 분리 운영</li>
+        <li class="itam-check">관리자 승인 워크플로우</li>
+        <li class="itam-check">엑셀 일괄 업로드 지원</li>
+      </ul>
+      <a href="https://mgit-platform.onrender.com" target="_blank" class="card-link link-itam">플랫폼 바로가기 →</a>
+    </div>
+
+    <!-- KIMCO -->
+    <div class="card card-kimco">
+      <div class="card-icon icon-kimco">📊</div>
+      <span class="card-tag tag-kimco">AI 회계</span>
+      <h3>AI 회계<br>리포트 플랫폼</h3>
+      <p>Claude AI를 활용해 세무·재무·컨설팅 리포트를 자동 생성하는 AICPA 전용 플랫폼입니다.</p>
+      <ul class="card-features">
+        <li class="kimco-check">Claude Agentic 리포트 생성</li>
+        <li class="kimco-check">세무·재무·컨설팅 유형 지원</li>
+        <li class="kimco-check">통합관리자 승인 워크플로우</li>
+        <li class="kimco-check">PDF 업로드 및 자동 분석</li>
+      </ul>
+      <a href="https://kimco.onrender.com" target="_blank" class="card-link link-kimco">플랫폼 바로가기 →</a>
+    </div>
+
+    <!-- XPERT -->
+    <div class="card card-xpert">
+      <div class="card-icon icon-xpert">🖥️</div>
+      <span class="card-tag tag-xpert">AI 워크스테이션</span>
+      <h3>AI EdgeXpert /<br>XpertStation</h3>
+      <p>AI 추론·학습·렌더링에 최적화된 고성능 엣지 AI 워크스테이션 솔루션입니다.</p>
+      <ul class="card-features">
+        <li class="xpert-check">엣지 AI 추론 최적화</li>
+        <li class="xpert-check">다양한 AI 워크로드 지원</li>
+        <li class="xpert-check">기업 맞춤형 구성 가능</li>
+        <li class="xpert-check">전문 기술 지원 제공</li>
+      </ul>
+      <a href="https://soboro27-rgb.github.io/ws300P" target="_blank" class="card-link link-xpert">제품 보러가기 →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- 연락처 -->
+<section class="contact" id="contact">
+  <h2>문의하기</h2>
+  <p>서비스 도입 및 제품 구매 문의는 아래로 연락해주세요.</p>
+  <div class="contact-items">
+    <a href="tel:010-9180-1410" class="contact-item">📞 010-9180-1410</a>
+    <a href="mailto:soboro27@naver.com" class="contact-item">✉️ soboro27@naver.com</a>
+  </div>
+</section>
+
+<!-- 푸터 -->
+<footer>
+  <div>© 2026 Coretail. All rights reserved.</div>
+  <div>사업자번호: 개인사업자 | <a href="mailto:soboro27@naver.com">soboro27@naver.com</a></div>
+</footer>
+
+</body>
+</html>
