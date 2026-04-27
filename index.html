@@ -14,6 +14,7 @@
       --accent1: #059669;
       --accent2: #2563eb;
       --accent3: #d97706;
+      --accent4: #0891b2;
       --text: #e2e8f0;
       --text-sub: #94a3b8;
     }
@@ -96,7 +97,7 @@
       text-align: center; font-size: clamp(26px, 4vw, 40px);
       font-weight: 800; margin-bottom: 56px; letter-spacing: -0.5px;
     }
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -111,10 +112,12 @@
     .card-itam::before { background: var(--accent1); }
     .card-kimco::before { background: var(--primary-light); }
     .card-xpert::before { background: var(--accent2); }
+    .card-aiup::before { background: var(--accent4); }
     .card:hover { transform: translateY(-6px); }
     .card-itam:hover { border-color: var(--accent1); }
     .card-kimco:hover { border-color: var(--primary-light); }
     .card-xpert:hover { border-color: var(--accent2); }
+    .card-aiup:hover { border-color: var(--accent4); }
     .card-icon {
       width: 52px; height: 52px; border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
@@ -123,6 +126,7 @@
     .icon-itam { background: rgba(5,150,105,0.15); }
     .icon-kimco { background: rgba(109,40,217,0.15); }
     .icon-xpert { background: rgba(37,99,235,0.15); }
+    .icon-aiup { background: rgba(8,145,178,0.15); }
     .card-tag {
       display: inline-block;
       padding: 3px 10px; border-radius: 20px;
@@ -132,6 +136,7 @@
     .tag-itam { background: rgba(5,150,105,0.15); color: #34d399; }
     .tag-kimco { background: rgba(109,40,217,0.15); color: #a78bfa; }
     .tag-xpert { background: rgba(37,99,235,0.15); color: #60a5fa; }
+    .tag-aiup { background: rgba(8,145,178,0.15); color: #22d3ee; }
     .card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
     .card p { color: var(--text-sub); font-size: 14px; line-height: 1.7; margin-bottom: 28px; }
     .card-features { list-style: none; margin-bottom: 32px; }
@@ -145,6 +150,7 @@
     .itam-check::before { color: var(--accent1) !important; }
     .kimco-check::before { color: var(--primary-light) !important; }
     .xpert-check::before { color: var(--accent2) !important; }
+    .aiup-check::before { color: var(--accent4) !important; }
     .card-link {
       display: block; text-align: center;
       padding: 11px; border-radius: 8px;
@@ -155,6 +161,7 @@
     .link-itam { background: var(--accent1); color: white; }
     .link-kimco { background: var(--primary); color: white; }
     .link-xpert { background: var(--accent2); color: white; }
+    .link-aiup { background: var(--accent4); color: white; }
 
     /* ── 연락처 ── */
     .contact {
@@ -217,7 +224,7 @@
 <!-- 서비스 -->
 <section class="services" id="services">
   <div class="section-label">Our Services</div>
-  <div class="section-title">3가지 핵심 서비스</div>
+  <div class="section-title">4가지 핵심 서비스</div>
   <div class="cards">
 
     <!-- ITAM -->
@@ -263,6 +270,21 @@
         <li class="xpert-check">전문 기술 지원 제공</li>
       </ul>
       <a href="https://soboro27-rgb.github.io/ws300P" target="_blank" class="card-link link-xpert">제품 보러가기 →</a>
+    </div>
+
+    <!-- AI UP -->
+    <div class="card card-aiup">
+      <div class="card-icon icon-aiup">🔄</div>
+      <span class="card-tag tag-aiup">GPU 자산 전환</span>
+      <h3>AI UP Solution —<br>GPU 자산 전환 플랫폼</h3>
+      <p>노후 GPU를 공정가치로 매입하고 최신 인프라를 즉시 렌탈하는 Zero CAPEX 원스톱 전환 솔루션입니다.</p>
+      <ul class="card-features">
+        <li class="aiup-check">기존 GPU 공정가치 보상 매입</li>
+        <li class="aiup-check">H200 / B200 최신 인프라 재렌탈</li>
+        <li class="aiup-check">초기 투자 Zero (CAPEX → OPEX)</li>
+        <li class="aiup-check">자산 평가부터 운영까지 토털케어</li>
+      </ul>
+      <a href="mailto:soboro27@naver.com" class="card-link link-aiup">도입 문의하기 →</a>
     </div>
 
   </div>
