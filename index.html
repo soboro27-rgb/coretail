@@ -16,6 +16,7 @@
       --accent3: #d97706;
       --accent4: #0891b2;
       --accent5: #db2777;
+      --accent6: #ff7a5c;
       --text: #e2e8f0;
       --text-sub: #94a3b8;
     }
@@ -108,12 +109,11 @@
     .card-dolbom { grid-column: span 1; }
     .card-aiup-wrap { grid-column: span 1; }
 
-    /* 4번째·5번째 카드를 가운데 2열로 */
+    /* 4~6번째 카드 */
     .cards-row2 {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      max-width: 800px;
       margin: 24px auto 0;
     }
 
@@ -133,6 +133,7 @@
     .card-xpert::before   { background: var(--accent2); }
     .card-aiup::before    { background: var(--accent4); }
     .card-dolbom::before  { background: var(--accent5); }
+    .card-igenuguya::before { background: var(--accent6); }
 
     .card:hover { transform: translateY(-6px); }
     .card-itam:hover   { border-color: var(--accent1); }
@@ -140,6 +141,7 @@
     .card-xpert:hover  { border-color: var(--accent2); }
     .card-aiup:hover   { border-color: var(--accent4); }
     .card-dolbom:hover { border-color: var(--accent5); }
+    .card-igenuguya:hover { border-color: var(--accent6); }
 
     .card-icon {
       width: 52px; height: 52px; border-radius: 12px;
@@ -151,6 +153,7 @@
     .icon-xpert  { background: rgba(37,99,235,0.15); }
     .icon-aiup   { background: rgba(8,145,178,0.15); }
     .icon-dolbom { background: rgba(219,39,119,0.15); }
+    .icon-igenuguya { background: rgba(255,122,92,0.15); }
 
     .card-tag {
       display: inline-block;
@@ -163,6 +166,7 @@
     .tag-xpert  { background: rgba(37,99,235,0.15);  color: #60a5fa; }
     .tag-aiup   { background: rgba(8,145,178,0.15);  color: #22d3ee; }
     .tag-dolbom { background: rgba(219,39,119,0.15); color: #f472b6; }
+    .tag-igenuguya { background: rgba(255,122,92,0.15); color: #ff9478; }
 
     .card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
     .card p  { color: var(--text-sub); font-size: 14px; line-height: 1.7; margin-bottom: 28px; }
@@ -179,6 +183,7 @@
     .xpert-check::before  { color: var(--accent2) !important; }
     .aiup-check::before   { color: var(--accent4) !important; }
     .dolbom-check::before { color: var(--accent5) !important; }
+    .igenuguya-check::before { color: var(--accent6) !important; }
 
     .card-link {
       display: block; text-align: center;
@@ -192,6 +197,7 @@
     .link-xpert  { background: var(--accent2);      color: white; }
     .link-aiup   { background: var(--accent4);      color: white; }
     .link-dolbom { background: var(--accent5);      color: white; }
+    .link-igenuguya { background: var(--accent6);   color: white; }
 
     /* ── 로드맵 ── */
     .roadmap { padding: 80px 24px 100px; max-width: 1200px; margin: 0 auto; }
@@ -252,7 +258,7 @@
 
     @media (max-width: 900px) {
       .cards { grid-template-columns: repeat(2, 1fr); }
-      .cards-row2 { grid-template-columns: 1fr; max-width: 100%; }
+      .cards-row2 { grid-template-columns: repeat(2, 1fr); }
       .roadmap-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 600px) {
@@ -281,7 +287,7 @@
 <section class="hero">
   <div class="hero-badge">AI-Powered Business Platform</div>
   <h1>비즈니스를 위한<br><span>AI 플랫폼</span> 솔루션</h1>
-  <p>Coretail은 기업 자산관리부터 AI 회계 리포트, 고성능 AI 워크스테이션,<br>동네 돌봄 매칭까지 비즈니스 전 영역을 커버하는 솔루션을 제공합니다.</p>
+  <p>Coretail은 기업 자산관리부터 AI 회계 리포트, 고성능 AI 워크스테이션,<br>동네 돌봄 매칭, 연락처 정리까지 비즈니스와 일상 전 영역을 커버하는 솔루션을 제공합니다.</p>
   <div class="hero-btns">
     <a href="#services" class="btn-primary">서비스 보기</a>
     <a href="#roadmap" class="btn-outline">로드맵 보기</a>
@@ -374,6 +380,21 @@
         <li class="dolbom-check">매칭 후 1:1 실시간 채팅</li>
       </ul>
       <a href="https://dolbom.coretail.co.kr" target="_blank" class="card-link link-dolbom">플랫폼 바로가기 →</a>
+    </div>
+
+    <!-- 이게누구야 -->
+    <div class="card card-igenuguya">
+      <div class="card-icon icon-igenuguya">📇</div>
+      <span class="card-tag tag-igenuguya">토스 미니앱</span>
+      <h3>이게누구야 —<br>연락처 정리 확인 서비스</h3>
+      <p>오래되어 정리하기 애매한 연락처, 상대방에게 직접 안부를 확인해 드리는 서비스입니다.</p>
+      <ul class="card-features">
+        <li class="igenuguya-check">안부 확인 문자 자동 발송</li>
+        <li class="igenuguya-check">받는 분이 직접 응답 선택</li>
+        <li class="igenuguya-check">삭제는 항상 본인이 최종 결정</li>
+        <li class="igenuguya-check">토스에서 설치 없이 바로 이용</li>
+      </ul>
+      <a href="intoss://igenuguya-miniapp" class="card-link link-igenuguya">토스에서 써보기 →</a>
     </div>
 
   </div>
