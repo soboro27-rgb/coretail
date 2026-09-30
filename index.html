@@ -106,14 +106,14 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
-    .card-dolbom { grid-column: span 1; }
     .card-aiup-wrap { grid-column: span 1; }
 
-    /* 4~6번째 카드 */
+    /* 4~5번째 카드를 가운데 2열로 */
     .cards-row2 {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
+      max-width: 800px;
       margin: 24px auto 0;
     }
 
@@ -132,7 +132,6 @@
     .card-kimco::before   { background: var(--primary-light); }
     .card-xpert::before   { background: var(--accent2); }
     .card-aiup::before    { background: var(--accent4); }
-    .card-dolbom::before  { background: var(--accent5); }
     .card-igenuguya::before { background: var(--accent6); }
 
     .card:hover { transform: translateY(-6px); }
@@ -140,7 +139,6 @@
     .card-kimco:hover  { border-color: var(--primary-light); }
     .card-xpert:hover  { border-color: var(--accent2); }
     .card-aiup:hover   { border-color: var(--accent4); }
-    .card-dolbom:hover { border-color: var(--accent5); }
     .card-igenuguya:hover { border-color: var(--accent6); }
 
     .card-icon {
@@ -152,7 +150,6 @@
     .icon-kimco  { background: rgba(109,40,217,0.15); }
     .icon-xpert  { background: rgba(37,99,235,0.15); }
     .icon-aiup   { background: rgba(8,145,178,0.15); }
-    .icon-dolbom { background: rgba(219,39,119,0.15); }
     .icon-igenuguya { background: rgba(255,122,92,0.15); }
 
     .card-tag {
@@ -165,7 +162,6 @@
     .tag-kimco  { background: rgba(109,40,217,0.15); color: #a78bfa; }
     .tag-xpert  { background: rgba(37,99,235,0.15);  color: #60a5fa; }
     .tag-aiup   { background: rgba(8,145,178,0.15);  color: #22d3ee; }
-    .tag-dolbom { background: rgba(219,39,119,0.15); color: #f472b6; }
     .tag-igenuguya { background: rgba(255,122,92,0.15); color: #ff9478; }
 
     .card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
@@ -182,7 +178,6 @@
     .kimco-check::before  { color: var(--primary-light) !important; }
     .xpert-check::before  { color: var(--accent2) !important; }
     .aiup-check::before   { color: var(--accent4) !important; }
-    .dolbom-check::before { color: var(--accent5) !important; }
     .igenuguya-check::before { color: var(--accent6) !important; }
 
     .card-link {
@@ -196,7 +191,6 @@
     .link-kimco  { background: var(--primary);      color: white; }
     .link-xpert  { background: var(--accent2);      color: white; }
     .link-aiup   { background: var(--accent4);      color: white; }
-    .link-dolbom { background: var(--accent5);      color: white; }
     .link-igenuguya { background: var(--accent6);   color: white; }
 
     /* ── 로드맵 ── */
@@ -258,7 +252,7 @@
 
     @media (max-width: 900px) {
       .cards { grid-template-columns: repeat(2, 1fr); }
-      .cards-row2 { grid-template-columns: repeat(2, 1fr); }
+      .cards-row2 { grid-template-columns: 1fr; max-width: 100%; }
       .roadmap-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 600px) {
@@ -287,7 +281,7 @@
 <section class="hero">
   <div class="hero-badge">AI-Powered Business Platform</div>
   <h1>비즈니스를 위한<br><span>AI 플랫폼</span> 솔루션</h1>
-  <p>Coretail은 기업 자산관리부터 AI 회계 리포트, 고성능 AI 워크스테이션,<br>동네 돌봄 매칭, 연락처 정리까지 비즈니스와 일상 전 영역을 커버하는 솔루션을 제공합니다.</p>
+  <p>Coretail은 기업 자산관리부터 AI 회계 리포트, 고성능 AI 워크스테이션,<br>연락처 정리까지 비즈니스와 일상 전 영역을 커버하는 솔루션을 제공합니다.</p>
   <div class="hero-btns">
     <a href="#services" class="btn-primary">서비스 보기</a>
     <a href="#roadmap" class="btn-outline">로드맵 보기</a>
@@ -365,21 +359,6 @@
         <li class="aiup-check">자산 평가부터 운영까지 토털케어</li>
       </ul>
       <a href="mailto:soboro27@naver.com" class="card-link link-aiup">도입 문의하기 →</a>
-    </div>
-
-    <!-- 돌봄잇 -->
-    <div class="card card-dolbom">
-      <div class="card-icon icon-dolbom">🧸</div>
-      <span class="card-tag tag-dolbom">동네 돌봄</span>
-      <h3>돌봄잇 —<br>GPS 돌봄 매칭 플랫폼</h3>
-      <p>국가 인증 케어메이트를 GPS 기반 쌍방향 스와이프로 즉시 매칭하는 동네 돌봄 플랫폼입니다.</p>
-      <ul class="card-features">
-        <li class="dolbom-check">쌍방향 스와이프 매칭 (틴더 UX)</li>
-        <li class="dolbom-check">국가 인증 케어메이트 뱃지</li>
-        <li class="dolbom-check">돌봄패스 내부 결제 시스템</li>
-        <li class="dolbom-check">매칭 후 1:1 실시간 채팅</li>
-      </ul>
-      <a href="https://dolbom.coretail.co.kr" target="_blank" class="card-link link-dolbom">플랫폼 바로가기 →</a>
     </div>
 
     <!-- 이게누구야 -->
